@@ -9,8 +9,8 @@ namespace GestoreEventi
 {
     public class Event
     {
-        private string _title;
-        public string Title
+        private string? _title;
+        public string? Title
         {
             get { return _title; }
             set
@@ -39,7 +39,7 @@ namespace GestoreEventi
         public int SeatsNumber {
             get { return _seatsNumber; }
             set {
-                if (value > 0)
+                if (value > 0 || value != null)
                     _seatsNumber = value;
                 else
                     Console.WriteLine("Il numero di posti non è valido");
@@ -48,7 +48,7 @@ namespace GestoreEventi
 
         public int ReservedSeatsNumber { get; set; }
 
-        public Event (string title, DateTime date, int seatsNumber)
+        public Event (string title, DateTime date, int seatsNumber, int reservedSeatsNumber)
         {
             Title = title;
             Date = date;
